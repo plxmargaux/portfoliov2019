@@ -1,0 +1,36 @@
+.column__wrapper {
+  @include screen-sm-min {
+    margin-bottom: 50px;
+  }
+
+  .column__content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 800ms $cubic-bezier, opacity 300ms $cubic-bezier;
+
+    @include screen-sm-min {
+      flex-direction: row;
+    }
+
+    &.hidden {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+
+    @include screen-sm-min {
+      width: calc(33% - 20px);
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

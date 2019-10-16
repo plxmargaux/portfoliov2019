@@ -1,0 +1,126 @@
+//-------------------------------------
+// PATHS
+//-------------------------------------
+
+$path-img: "../images";
+$path-fonts: "../fonts";
+
+
+//-------------------------------------
+// COLORS
+//-------------------------------------
+
+$white: #ffffff;
+$black: #000000;
+$grey: #cdcdcd;
+$lightgrey: #e9e9e9;
+$primary: #34314c;
+$pink: #ff7473;
+$lightpink: #FAB8B8;
+$blue: #47b8e0;
+$mediumblue: #8ccae0;
+$lightblue: #f4faff;
+$yellow: #ffc952;
+$mediumyellow: #ffd782;
+
+
+//-------------------------------------
+// SIZES
+//-------------------------------------
+
+$dot-size: 8px;
+
+
+//-------------------------------------
+// OTHERS
+//-------------------------------------
+
+$cubic-bezier: cubic-bezier(.56, .37, .12, .79);
+$offset: -10px;
+$count: 40;
+$duration: 1;
+
+//-------------------------------------
+// ## LAYOUT
+//-------------------------------------
+
+$screen-xs: 480px;
+$screen-xxs-max: $screen-xs - 1;
+$screen-sm: 768px;
+$screen-xs-max: $screen-sm - 1;
+$screen-lg: 1200px;
+
+@mixin centered-Y() {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+}
+
+@mixin centered-X() {
+  transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+}
+
+@mixin centered() {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+@mixin color-link($color) {
+  background-color: $color;
+}
+
+@keyframes wave {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY($offset);
+  }
+}
+
+//-------------------------------------
+// ## HELPERS
+//-------------------------------------
+
+.flex {
+  &-container {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $screen-sm) {
+      flex-direction: row;
+    }
+  }
+
+  &-direction-column {
+    flex-direction: column;
+
+    @media (min-width: $screen-sm) {
+      flex-direction: column;
+    }
+  }
+
+  &-justify-center {
+    justify-content: center;
+  }
+
+  &-align-center {
+    align-items: center;
+  }
+}
+
+.margin-bottom-auto {
+  margin-bottom: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margins {
+  margin: 20px 0;
+}

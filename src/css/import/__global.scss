@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+}
+/*
+
+* { background-color: rgba(255,0,0,.2); }
+* * { background-color: rgba(0,255,0,.2); }
+* * * { background-color: rgba(0,0,255,.2); }
+* * * * { background-color: rgba(255,0,255,.2); }
+* * * * * { background-color: rgba(0,255,255,.2); }
+* * * * * * { background-color: rgba(255,255,0,.2); }
+* * * * * * * { background-color: rgba(255,0,0,.2); }
+* * * * * * * * { background-color: rgba(0,255,0,.2); }
+* * * * * * * * * { background-color: rgba(0,0,255,.2); }
+*/
+
+html,
+body {
+  margin: 0;
+  font-family: $font-family-sans-serif;
+  font-weight: normal;
+  color: $primary;
+  position: relative;
+  cursor: none;
+  background-color: $lightblue;
+  font-size: 16px;
+
+  .background__container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('#{$path-img}/noise.png');
+    background-repeat: repeat;
+    z-index: 0;
+  }
+
+  .custom__cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    border-radius: 50%;
+
+    @include screen-xs-max {
+      display: none;
+    }
+
+    &.cursor--outer {
+      width: 30px;
+      height: 30px;
+      border: 1px solid $primary;
+      z-index: 12000;
+      opacity: 0.2;
+      transform-origin: center center;
+    }
+
+    &.cursor--inner {
+      width: 5px;
+      height: 5px;
+      left: -2.5px;
+      top: -2.5px;
+      z-index: 11000;
+      background: $pink;
+    }
+  }
+
+  a {
+    @include color-link($blue);
+    padding: 4px;
+    text-decoration: none;
+    color: inherit;
+
+    &.yellow {
+      color: $white;
+      @include color-link($yellow);
+    }
+
+    &.pink {
+      color: $white;
+      @include color-link($pink);
+    }
+
+    &.blue {
+      color: $white;
+    }
+
+    &.big {
+      padding: 10px;
+      font-family: $font-family-serif;
+    }
+  }
+
+  p {
+    margin: 5px 0;
+    line-height: 1.6;
+  }
+
+  .link {
+    @include color-link($blue);
+  }
+
+  h2, h3 {
+    font-weight: 700;
+    position: relative;
+    margin: 10px 0;
+    font-size: 1.2rem;
+
+    @include screen-sm-min {
+      font-size: 1.5rem;
+    }
+
+    &:before {
+      content: '';
+      @include centered-Y;
+      left: -20px;
+      width: $dot-size;
+      height: $dot-size;
+      border-radius: 50%;
+    }
+  }
+
+  h1 {
+    font-family: $font-family-serif;
+    line-height: 1;
+    letter-spacing: -4px;
+    font-size: 3rem;
+    margin: 20px 0;
+    position: relative;
+
+    @include screen-sm-min {
+      font-size: 5rem;
+    }
+
+    &:before {
+      background-color: $pink;
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: -20px;
+      width: $dot-size*1.5;
+      height: $dot-size*1.5;
+      border-radius: 50%;
+    }
+  }
+
+  .big-text {
+    font-family: $font-family-serif;
+    line-height: 1;
+    letter-spacing: -4px;
+    font-size: 3rem;
+    margin: 20px 0;
+
+    @include screen-sm-min {
+      font-size: 5rem;
+    }
+  }
+
+  h2:before {
+    background-color: $yellow;
+  }
+
+  h3:before {
+    background-color: $blue;
+  }
+
+  strong {
+    font-family: $font-family-serif;
+  }
+
+  footer {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: .76em;
+    letter-spacing: 1px;
+    padding: 15px;
+
+    @include screen-sm-min {
+      padding: 15px 120px;
+    }
+
+    span {
+      opacity: .7;
+    }
+  }
+
+  .modal-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(300px);
+    transition: transform 500ms $cubic-bezier 300ms, opacity 500ms $cubic-bezier 300ms, visibility 500ms $cubic-bezier 300ms;
+
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .close {
+      @include color-link($pink);
+      font-family: $font-family-serif;
+      color: $white;
+      padding: 10px;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translate(-50%);
+
+      @include screen-sm-min {
+        bottom: auto;
+        top: 10px;
+        right: 30px;
+        left: auto;
+      }
+    }
+
+    .modal-content {
+      margin: 20px 0;
+      text-align: center;
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+
+      @include screen-sm-min {
+        margin: 60px 0;
+        max-height: calc(100vh - 120px);
+      }
+
+      img {
+        max-width: calc(100% - 40px);
+
+        @include screen-sm-min {
+          max-width: calc(100% - 120px);
+        }
+      }
+    }
+  }
+
+  &.is-overlay {
+    overflow: hidden;
+  }
+}

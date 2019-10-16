@@ -1,0 +1,22 @@
+$quasimoda: 'quasimoda-light-webfont';
+$butler: 'Butler-ExtraBold';
+$font-family-serif: $butler;
+$font-family-sans-serif: $quasimoda;
+
+// $quasimoda
+@font-face {
+  font-family: '#{$quasimoda}';
+  src: url('#{$path-fonts}/#{$quasimoda}.woff') format('woff'),
+  url('#{$path-fonts}/#{$quasimoda}.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// $butler
+@font-face {
+  font-family: '#{$butler}';
+  src: url('#{$path-fonts}/#{$butler}.woff') format('woff'),
+  url('#{$path-fonts}/#{$butler}.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,176 @@
+main {
+  position: relative;
+  z-index: 4;
+
+  .container {
+    section {
+      padding: 40px;
+      position: relative;
+      min-height: calc(100vh - 127px);
+
+      @include screen-lg-min {
+        padding: 40px 246px;
+      }
+
+      #canvas-wave {
+        position: absolute;
+        top: -260px;
+        width: 100%;
+        left: 0;
+      }
+
+      a {
+        font-family: $font-family-serif;
+      }
+
+      > * {
+        will-change: transform;
+        width: 100%;
+      }
+
+      &.background {
+        &__pink {
+          min-height: 65vh;
+          color: $white;
+          background-color: $lightpink;
+        }
+
+        &__blue {
+          min-height: 65vh;
+          color: $white;
+          background-color: $mediumblue;
+        }
+
+        &__yellow {
+          min-height: 65vh;
+          color: $white;
+          background-color: $mediumyellow;
+        }
+      }
+
+      .flex-container {
+        margin-bottom: 80px;
+
+        > div {
+          &:not(:last-child) {
+            padding-bottom: 35px;
+
+            @include screen-sm-min {
+              padding-right: 35px;
+            }
+          }
+        }
+      }
+
+      &.round {
+        &:before {
+          width: 65vw;
+          height: 65vw;
+          background-color: rgba($mediumblue, 0.09);
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          right: 0;
+
+          @include screen-sm-min {
+            content: '';
+          }
+        }
+      }
+
+      &.min-height-50 {
+        min-height: 50vh;
+      }
+    }
+
+    .skills__container {
+      @include screen-sm-min {
+        margin-top: 40px;
+      }
+
+      > div {
+        flex: 100%;
+
+        @include screen-sm-min {
+          flex: 33%;
+        }
+      }
+
+      strong {
+        font-size: 1.2rem;
+      }
+    }
+
+    .experience__container {
+      > div {
+        transform-style: preserve-3d;
+        width: 100%;
+        max-width: calc(100vw - 40px);;
+        height: calc(100vw - 80px);
+        margin: 20px 0;
+        background-color: rgba($pink, .3);
+        padding: 50px;
+        border-radius: 50%;
+        text-align: center;
+
+        @include screen-sm-min {
+          max-width: 350px;
+          height: 350px;
+          display: flex;
+          margin: 0 10px;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        @include screen-lg-min {
+          margin: 0 20px;
+        }
+
+        strong {
+          transform: translateZ(100px);
+        }
+
+        p {
+          transform: translateZ(50px);
+        }
+
+        i {
+          transform: translateZ(75px);
+        }
+      }
+    }
+  }
+
+  .scroll-down__container {
+    text-align: center;
+    margin-top: 60px;
+
+    @include screen-sm-min {
+      margin-top: 100px;
+    }
+
+    > div {
+      padding: 10px;
+      cursor: pointer;
+      display: inline-block;
+
+      > span {
+        display: inline-block;
+        color: rgba($primary, .5);
+        font-size: .786em;
+        letter-spacing: 1px;
+        will-change: tranform;
+        transition: transform 250ms $cubic-bezier;
+        animation: wave #{$duration}s infinite alternate;
+
+        @for $i from 0 to $count {
+          &:nth-child( #{$count}n + #{$i} ) {
+            animation-delay : -#{($count - $i) * 2 * $duration / $count }s;
+          }
+        }
+      }
+    }
+  }
+}
+
+

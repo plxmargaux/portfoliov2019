@@ -1,0 +1,81 @@
+//-------------------------------------
+// MIXINS
+//-------------------------------------
+//
+// This file contains the project mixins.
+//
+// MEDIA QUERIES
+//
+
+// Completed sizes:
+//
+//       374     480              768         992                1200                    1600
+//  '     '   '   '     '     '    '     '     '     '     '      '     '     '     '     '     '     '
+//  <-----^-------^----------------^-----------^------------------^-----------------------^------------>
+//    xxs    xxs         xs             sm              md                   lg                 xl
+//  (small)
+//  (phone --)      (phone)        (tablet)        (laptop)             (desktop)        (desktop ++)
+//
+
+// xxs only (0 <-> 479px)
+@mixin screen-xxs() {
+  @media (max-width: $screen-xxs-max) {
+    @content;
+  }
+}
+
+
+// xs-min (480px <-> ...)
+@mixin screen-xs-min() {
+  @media (min-width: $screen-xs) {
+    @content;
+  }
+}
+
+
+// xs only (480px <-> 767px)
+@mixin screen-xs() {
+  @media (min-width: $screen-xs) and (max-width: $screen-xs-max) {
+    @content;
+  }
+}
+
+// xs max (0 <-> 767px)
+@mixin screen-xs-max() {
+  @media (max-width: $screen-xs-max) {
+    @content;
+  }
+}
+
+
+// sm min (768px <-> ...)
+@mixin screen-sm-min() {
+  @media (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+
+// xs max (0 <-> 769px)
+@mixin screen-xs-max-tablet() {
+  @media (max-width: $screen-xs-max + 1) {
+    @content;
+  }
+}
+
+
+// sm min + 1 (769px <-> ...)
+@mixin screen-sm-min-tablet() {
+  @media (min-width: $screen-sm + 1) {
+    @content;
+  }
+}
+
+
+// lg min (1200 <-> ...)
+@mixin screen-lg-min() {
+  @media (min-width: $screen-lg) {
+    @content;
+  }
+}
+
