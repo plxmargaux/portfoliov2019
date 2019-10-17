@@ -55,6 +55,13 @@
   }
 }
 
+// sm min (768px <-> ...)
+@mixin screen-sm-max-height() {
+  @media (max-height: $screen-sm + 1) {
+    @content;
+  }
+}
+
 
 // xs max (0 <-> 769px)
 @mixin screen-xs-max-tablet() {

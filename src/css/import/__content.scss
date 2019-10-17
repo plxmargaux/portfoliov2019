@@ -76,6 +76,16 @@ main {
             content: '';
           }
         }
+
+        & + section {
+          @include screen-xs-max {
+            padding: 0 40px 40px;
+          }
+
+          @include screen-sm-max-height {
+            margin-top: 100px;
+          }
+        }
       }
 
       &.min-height-50 {
@@ -143,7 +153,8 @@ main {
 
   .scroll-down__container {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 10px;
+    z-index: 1000;
 
     @include screen-sm-min {
       margin-top: 100px;
@@ -156,7 +167,7 @@ main {
 
       > span {
         display: inline-block;
-        color: rgba($primary, .5);
+        color: $primary;
         font-size: .786em;
         letter-spacing: 1px;
         will-change: tranform;
