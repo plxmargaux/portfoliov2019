@@ -17,6 +17,7 @@ import Waves from './Waves';
 import Scroll from './Scroll';
 import Gallery from './Gallery';
 import 'tilt.js';
+import moment from "moment";
 
 /**
  * MAIN class
@@ -45,5 +46,7 @@ export default class Main {
             scale:          1,      // 2 = 200%, 1.5 = 150%, etc..
             speed:          600,    // Speed of the enter/exit transition.
         });
+
+        $('.js-footer').html(`Margaux Précloux ${moment().format('YYYY')}. - margauxprecloux(@)gmail.com`)
     }
 }

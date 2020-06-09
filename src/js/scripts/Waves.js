@@ -11,8 +11,7 @@
 *
 * */
 
-import TweenMax from 'gsap/TweenMax';
-import TweenLite from 'gsap/TweenLite';
+import { gsap, TweenMax, Sine } from 'gsap';
 
 /*
 ***************************************
@@ -105,7 +104,7 @@ export default class Waves {
             resized = true;
         });
 
-        TweenLite.ticker.addEventListener("tick", update);
+        gsap.ticker.add(update);
 
         function update() {
 

@@ -4,12 +4,16 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150220538-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-150220538-1');
     </script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Margaux Précloux - Gallery.</title>
     <meta name="description" content="Exhibit - Frontend Developer @ EmakinaFR Limoges">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -43,20 +47,23 @@
             <canvas id="canvas-wave" class="yellow"></canvas>
             <div class="column__wrapper">
                 <div class="column__content">
-                    <div data-tilt class="card link-item" data-id="01" data-number-images="3"><img src="<%= require('../images/gallery/01.jpg') %>" alt=""></div>
-                    <div data-tilt class="card link-item" data-id="02" data-number-images="4"><img src="<%= require('../images/gallery/02.jpg') %>" alt=""></div>
-                    <div data-tilt class="card link-item" data-id="03" data-number-images="4"><img src="<%= require('../images/gallery/03.jpg') %>" alt=""></div>
-                    <div data-tilt class="card link-item" data-id="04" data-number-images="4"><img src="<%= require('../images/gallery/04.jpg') %>" alt=""></div>
-                    <div data-tilt class="card link-item" data-id="05" data-number-images="3"><img src="<%= require('../images/gallery/05.jpg') %>" alt=""></div>
+                    <div data-tilt class="card link-item" data-id="05" data-number-images="3"><img
+                        src="<%= require('../images/gallery/05.jpg') %>" alt=""></div>
+                    <div data-tilt class="card link-item" data-id="01" data-number-images="3"><img
+                        src="<%= require('../images/gallery/01.jpg') %>" alt=""></div>
+                    <div data-tilt class="card link-item" data-id="02" data-number-images="4"><img
+                        src="<%= require('../images/gallery/02.jpg') %>" alt=""></div>
+                    <div data-tilt class="card link-item" data-id="03" data-number-images="4"><img
+                        src="<%= require('../images/gallery/03.jpg') %>" alt=""></div>
+                    <div data-tilt class="card link-item" data-id="04" data-number-images="4"><img
+                        src="<%= require('../images/gallery/04.jpg') %>" alt=""></div>
                 </div>
             </div>
         </section>
     </div>
 </main>
 <footer>
-    <span>
-        Margaux Précloux 2019.
-    </span>
+    <span class="js-footer"></span>
 </footer>
 <div class="background__container"></div>
 <div class="cursor__container">

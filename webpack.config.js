@@ -3,7 +3,7 @@
 const path = require('path');
 const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpackPlugin = require('webpack');
@@ -114,10 +114,14 @@ const webpack = {
                 },
                 {
                     test: /\.(gif|png|jpe?g|svg)$/i,
-                    loader: 'file-loader',
-                    options: {
-                        name: 'img/[name].[hash].[ext]'
-                    }
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                esModule: false,
+                            },
+                        },
+                    ],
                 },
             ],
         },
@@ -132,9 +136,12 @@ const webpack = {
                 filename: configuration.filename.css,
                 chunkFilename: '[id].css'
             }),
-            new CopyPlugin([
-                { from: configuration.paths.src + 'images/gallery/large/', to: path.resolve('dist/img/gallery/large/') },
-            ]),
+            new CopyPlugin({
+                    patterns: [
+                        { from: configuration.paths.src + 'images/gallery/large/', to: path.resolve('dist/img/gallery/large/') },
+                    ],
+                }
+            ),
         ].concat(generateHtmlPlugins(configuration.paths.src + 'views/'))
         .concat( new AppManifestWebpackPlugin({
             logo: configuration.paths.src + 'images/favicon.png',

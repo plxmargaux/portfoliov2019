@@ -14,8 +14,7 @@
  * http://www.codrops.com
  */
 
-import TweenMax from 'gsap/TweenMax';
-import TimelineLite from 'gsap/TimelineLite';
+import { TweenMax, TimelineLite } from 'gsap';
 
 /**
  * CURSOR class
