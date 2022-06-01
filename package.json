@@ -54,7 +54,7 @@
     "image-webpack-loader": "^6.0.0",
     "jquery": "^3.5.1",
     "moment": "^2.26.0",
-    "sharp": "^0.25.3",
+    "sharp": "^0.30.5",
     "swup": "^2.0.10",
     "tilt.js": "^1.2.1"
   }
